@@ -1,0 +1,12 @@
+﻿global using CommonBasicLibraries.CollectionClasses;
+global using System.ComponentModel.DataAnnotations;
+global using CommonBasicLibraries.BasicDataSettingsAndProcesses;
+global using ContactManager.CoreLibrary.Attributes;
+global using ContactManager.CoreLibrary.Models;
+global using aa = CommonBasicLibraries.BasicDataSettingsAndProcesses.ApplicationPath;
+global using bb = CommonBasicLibraries.BasicDataSettingsAndProcesses.BasicDataFunctions;
+global using fs = CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.FileFunctions.FileFunctions;
+global using js = CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.JsonSerializers.FileHelpers;
+global using CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.BasicExtensions;
+global using ContactManager.CoreLibrary.Logic;
+global using CommonBasicLibraries.BasicUIProcesses;
