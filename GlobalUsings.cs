@@ -10,3 +10,4 @@ global using js = CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.Json
 global using CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.BasicExtensions;
 global using ContactManager.CoreLibrary.Logic;
 global using CommonBasicLibraries.BasicUIProcesses;
+global using CommonBasicLibraries.AdvancedGeneralFunctionsAndProcesses.MapHelpers;
