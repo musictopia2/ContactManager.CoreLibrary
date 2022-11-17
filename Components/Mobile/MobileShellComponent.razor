@@ -1,0 +1,52 @@
+﻿@inherits MobileContactManagerComponentBase
+@if (DataContext is null)
+{
+    return;
+}
+@if (DataContext.Processing)
+{
+    return;
+}
+<NavigationBarContainer AlwaysShowBar="true"
+                        BackClicked="DataContext.GoBack"
+                        ShowBack="DataContext.CanGoBack"
+                        Title="@DataContext.Title"
+                        >
+    <BarContent>
+        @if (DataContext.ContactChosen is null)
+        {
+            <DownloadComponent BackgroundColor="aqua"
+                               TargetHeight="40px"
+                               Clicked="DataContext.DownloadContactsAsync" />
+            return;
+        }
+    </BarContent>
+    <MainContent>
+        @if (DataContext.Status != "")
+        {
+            @DataContext.Status;
+            return;
+        }
+        @if (DataContext.Contacts.Count == 0)
+        {
+            <div>No Contacts</div>
+            return;
+        }
+        @if (DataContext.ContactChosen is null)
+        {
+            <MobileContactListComponent />
+            return;
+        }
+        <CarouselBasicContainer>
+            <CarouselBasicItem>
+                <MobileViewBasicContactComponent />
+            </CarouselBasicItem>
+            <CarouselBasicItem>
+                <MobileDrivingInstructionsComponent />
+            </CarouselBasicItem>
+            <CarouselBasicItem>
+                <MobileNotesComponent />
+            </CarouselBasicItem>
+        </CarouselBasicContainer>
+    </MainContent>
+</NavigationBarContainer>

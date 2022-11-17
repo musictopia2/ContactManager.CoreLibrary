@@ -1,0 +1,46 @@
+﻿@inherits MobileContactManagerComponentBase
+@if (DataContext is null)
+{
+    return;
+}
+@if (DataContext.ContactChosen is null)
+{
+    return;
+}
+<div>
+    <span class="@css1.Bold">
+        Name:
+    </span>
+    @DataContext.ContactChosen.DisplayName
+</div>
+<GridTwoColumnUnlimited MaxContent="false">
+    @foreach (var item in DataContext.ContactChosen.PhoneNumbers)
+    {
+        <div>
+            @GetDisplay(item.PhoneCategory)
+        </div>
+        <div>
+            <PrimaryButton OnClick="() => DataContext.MakePhoneCall(item)" Style="width: 90%;" FontSize="2rem">
+                @item.PhoneNumber
+            </PrimaryButton>
+        </div>
+    }
+</GridTwoColumnUnlimited>
+<GridTwoColumnUnlimited>
+    <LabelPairComponent BoldHeader="true"
+                        HeaderText="Email"
+                        MainText="@DataContext.ContactChosen.EmailAddress" UseGrid="true" />
+    <LabelPairComponent BoldHeader="true"
+                        HeaderText="Street Address"
+                        MainText="@DataContext.ContactChosen.StreetAddress" UseGrid="true" />
+    <LabelPairComponent BoldHeader="true"
+                        HeaderText="City"
+                        MainText="@DataContext.ContactChosen.City" UseGrid="true" />
+    <LabelPairComponent BoldHeader="true"
+                        HeaderText="State"
+                        MainText="@DataContext.ContactChosen.State" UseGrid="true" />
+    <LabelPairComponent BoldHeader="true"
+                        HeaderText="Postal Code"
+                        MainText="@DataContext.ContactChosen.PostalCode" UseGrid="true" />
+
+</GridTwoColumnUnlimited>

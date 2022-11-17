@@ -5,13 +5,13 @@ public class ContactMobileFileStorage : IContactStorage
     private readonly string _storagePath;
     public ContactMobileFileStorage()
     {
-        if (bb.OS == bb.EnumOS.Android)
+        if (bb1.OS == bb1.EnumOS.Android)
         {
-            _storagePath = @$"{fs.GetApplicationDataForMobileDevices()}/Contacts.json";
+            _storagePath = @$"{fs1.GetApplicationDataForMobileDevices()}/Contacts.json";
         }
-        else if (bb.OS == BasicDataFunctions.EnumOS.WindowsDT)
+        else if (bb1.OS == BasicDataFunctions.EnumOS.WindowsDT)
         {
-            _storagePath = Path.Combine(aa.GetApplicationPath(), "Contacts.json");
+            _storagePath = Path.Combine(aa1.GetApplicationPath(), "Contacts.json");
         }
         else
         {
@@ -20,15 +20,15 @@ public class ContactMobileFileStorage : IContactStorage
     }
     public Task<BasicList<ContactModel>> GetContactsAsync()
     {
-        if (fs.FileExists(_storagePath) == false)
+        if (fs1.FileExists(_storagePath) == false)
         {
             return Task.FromResult(new BasicList<ContactModel>());
         }
-        var output = js.RetrieveSavedObject<BasicList<ContactModel>>(_storagePath);
+        var output = js1.RetrieveSavedObject<BasicList<ContactModel>>(_storagePath);
         return Task.FromResult(output);
     }
     public async Task SaveContactsAsync(BasicList<ContactModel> contacts)
     {
-        await js.SaveObjectAsync(_storagePath, contacts);
+        await js1.SaveObjectAsync(_storagePath, contacts);
     }
 }

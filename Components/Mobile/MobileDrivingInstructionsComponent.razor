@@ -1,0 +1,17 @@
+﻿@inherits MobileContactManagerComponentBase
+@if (DataContext is null)
+{
+    return;
+}
+@if (DataContext.ContactChosen is null)
+{
+    return;
+}
+<LeftOverLayout>
+    <TopContent>
+        <div class="@css1.Bold">Driving Instructions:</div>
+    </TopContent>
+    <MainContent>
+        <MultiLineControl Value="@DataContext.ContactChosen.DrivingInstructions" />
+    </MainContent>
+</LeftOverLayout>

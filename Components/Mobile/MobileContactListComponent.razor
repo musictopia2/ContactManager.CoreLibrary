@@ -1,0 +1,11 @@
+﻿@inherits MobileContactManagerComponentBase
+@if (DataContext is null)
+{
+    return;
+}
+<MobileListBox Data="DataContext.Contacts"
+               TValue="string"
+               OnItemSelected="DataContext.ChooseContact"
+               >
+    @context
+</MobileListBox>
