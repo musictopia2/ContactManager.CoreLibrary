@@ -1,0 +1,16 @@
+﻿<DataEntryFormGridComponent Model="Contact" OnValidSubmit="OnValidSubmitAsync" SubmitKey="F5">
+    <div>
+        Hit F5 to submit the entire form to add new contact
+    </div>
+    <div>
+
+    </div>
+    <DataEntryItem Header="Enter Display Name">
+        <InputEnterText FocusFirst="true" @bind-Value="Contact.DisplayName" Placeholder="Display Name" />
+    </DataEntryItem>
+    <DataEntryItem Header="Relationship">
+        <InputEnterComboEnum @bind-Value="Contact.Relationship" Placeholder="Relationship" />
+    </DataEntryItem>
+    <HotkeyItem Key="ConsoleKey.F6" Label="Focus on phone number to enter a new one." />
+    <AddPhoneComponent AddedPhoneNumber="AddedPhoneNumber" />
+</DataEntryFormGridComponent>

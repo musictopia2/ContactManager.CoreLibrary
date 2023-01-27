@@ -1,0 +1,40 @@
+﻿@if (DataContext is null)
+{
+    return;
+}
+<NavigationBarContainer AlwaysShowBar="true"
+                        BackClicked="DataContext.GoBack"
+                        ShowBack="DataContext.CanGoBack"
+                        Title="@DataContext.Title"
+                        >
+    <MainContent>
+        @if (DataContext.Status == EnumDesktopContactStatus.None)
+        {
+            <div>Main Page So Far</div>
+            return;
+        }
+        @if (DataContext.Status == EnumDesktopContactStatus.EditContact)
+        {
+            <div>Needs to figure out how to edit contacts</div>
+            return;
+        }
+        @if (DataContext.Status == EnumDesktopContactStatus.AddContact)
+        {
+            <NewContactComponent />
+            return;
+        }
+        @if (DataContext.Status == EnumDesktopContactStatus.UploadContacts)
+        {
+            <div>
+                <PrimaryButton OnClick="DataContext.DoUploadAsync">
+                    Upload Contacts
+                </PrimaryButton>
+            </div>
+            <div>
+                @DataContext.UploadMessageText
+            </div>
+            return;
+        }
+        <div>Unknown</div>
+    </MainContent>
+</NavigationBarContainer>
