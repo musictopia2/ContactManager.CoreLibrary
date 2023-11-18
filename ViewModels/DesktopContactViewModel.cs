@@ -20,6 +20,14 @@ public class DesktopContactViewModel
     {
         Status = EnumDesktopContactStatus.UploadContacts; //this means the button can appear to upload the contacts.
     }
+    public void StartEditContact()
+    {
+        Status = EnumDesktopContactStatus.EditContact;
+    }
+    public void StartDeleteContact()
+    {
+        Status = EnumDesktopContactStatus.DeleteContact;
+    }
     public async Task DoUploadAsync()
     {
         try
@@ -52,6 +60,10 @@ public class DesktopContactViewModel
             if (Status == EnumDesktopContactStatus.EditContact)
             {
                 return "Edit Contacts";
+            }
+            if (Status == EnumDesktopContactStatus.DeleteContact)
+            {
+                return "Delete Contact";
             }
             return "None";
         }

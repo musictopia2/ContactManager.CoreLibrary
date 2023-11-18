@@ -1,16 +1,26 @@
-﻿<DataEntryFormGridComponent Model="Contact" OnValidSubmit="OnValidSubmitAsync" SubmitKey="F5">
+﻿<DataEntryFormGridComponent Model="Contact" OnValidSubmit="OnValidSubmitAsync" SubmitKey="F6">
     <div>
-        Hit F5 to submit the entire form to add new contact
+        Hit F6 to submit the entire form to add new contact
     </div>
     <div>
 
     </div>
     <DataEntryItem Header="Enter Display Name">
-        <InputEnterText FocusFirst="true" @bind-Value="Contact.DisplayName" Placeholder="Display Name" />
+        <InputEnterText @ref=_firstElement FocusFirst="true" @bind-Value="Contact.DisplayName"  />
     </DataEntryItem>
     <DataEntryItem Header="Relationship">
-        <InputEnterComboEnum @bind-Value="Contact.Relationship" Placeholder="Relationship" />
+        <InputEnterComboEnum @bind-Value="Contact.Relationship" Style="_model" />
     </DataEntryItem>
-    <HotkeyItem Key="ConsoleKey.F6" Label="Focus on phone number to enter a new one." />
-    <AddPhoneComponent AddedPhoneNumber="AddedPhoneNumber" />
+    <HotkeyItem Key="ConsoleKey.F7" Label="Focus on phone number to enter a new one." />
+    <AddPhoneComponent AddedPhoneNumber="AddedPhoneNumber" Style="_model" />
+    
 </DataEntryFormGridComponent>
+<div>
+    <h5>Phone Numbers</h5>
+    @foreach (var phone in Contact.PhoneNumbers)
+    {
+        <p>
+            @phone.ToString()
+        </p>
+    }
+</div>

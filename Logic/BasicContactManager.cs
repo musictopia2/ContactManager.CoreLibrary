@@ -22,6 +22,15 @@ public class BasicContactManager : IContactManager
         _contactContainer.Contacts.Add(contact);
         await SaveChangesAsync();
     }
+    public async Task DeleteContactAsync(ContactModel contact)
+    {
+        if (_contactContainer.Contacts.Count == 0)
+        {
+            _contactContainer.Contacts = await GetContactsAsync();
+        }
+        _contactContainer.Contacts.RemoveAllOnly(x => x.DisplayName == contact.DisplayName);
+        await SaveChangesAsync();
+    }
     public async Task AddPhoneAsync(PhoneModel phone)
     {
         _contactContainer.CurrentContact!.PhoneNumbers.Add(phone);

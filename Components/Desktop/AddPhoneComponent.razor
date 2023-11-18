@@ -1,13 +1,15 @@
-﻿<SubmitForm OnValidSubmit="OnValidSubmit">
+﻿<SubmitForm Model=NewNumber OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-
-    <DataEntryItem Header="Phone Number">
-        <InputEnterText @bind-Value="NewNumber.PhoneNumber" ID="phone" PlaceholderText="Phone Number"></InputEnterText>
-    </DataEntryItem>
-    <DataEntryItem Header="Category">
-        <InputEnterComboEnum @bind-Value="NewNumber.PhoneCategory" Placeholder="Category" WasSubmit="true" />
-    </DataEntryItem>
+    <div style="display: grid; grid-template-columns: max-content 1fr; column-gap: 5px; grid-row-gap: 5px;">
+        <DataEntryItem Header="Phone Number">
+            <InputEnterText @bind-Value="NewNumber.PhoneNumber" ID="phone" PlaceholderText="Phone Number"></InputEnterText>
+        </DataEntryItem>
+        <DataEntryItem Header="Category">
+            <InputEnterComboEnum @bind-Value="NewNumber.PhoneCategory" Style=Style  WasSubmit="true" />
+        </DataEntryItem>
+    </div>
+    
     <div>
         <SubmitButton IsPrimary=true>
             Add New Phone Number

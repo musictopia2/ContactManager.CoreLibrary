@@ -10,12 +10,36 @@
     <MainContent>
         @if (DataContext.Status == EnumDesktopContactStatus.None)
         {
-            <div>Main Page So Far</div>
+            <div>
+                <PrimaryButton OnClick="DataContext.StartAddContact">
+                    Add New Contact
+                </PrimaryButton>
+            </div>
+            <div>
+                <PrimaryButton OnClick="DataContext.StartUploads">
+                    Start To Upload Contacts
+                </PrimaryButton>
+            </div>
+            <div>
+                <PrimaryButton OnClick="DataContext.StartEditContact">
+                    Start Edit Contacts
+                </PrimaryButton>
+            </div>
+            <div>
+                <PrimaryButton OnClick="DataContext.StartDeleteContact">
+                    Delete Contact
+                </PrimaryButton>
+            </div>
             return;
         }
         @if (DataContext.Status == EnumDesktopContactStatus.EditContact)
         {
             <div>Needs to figure out how to edit contacts</div>
+            return;
+        }
+        @if (DataContext.Status == EnumDesktopContactStatus.DeleteContact)
+        {
+            <DeleteContactComponent />
             return;
         }
         @if (DataContext.Status == EnumDesktopContactStatus.AddContact)
